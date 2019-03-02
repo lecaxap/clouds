@@ -36,30 +36,7 @@ public class MinPQ<Key> {
         n = 0;
     }
 
-    /**
-     * Initializes an empty priority queue using the given comparator.
-     *
-     * @param  comparator the order in which to compare the keys
-     */
-    public MinPQ(Comparator<Key> comparator) {
-        this(1, comparator);
-    }
 
-    /**
-     * Initializes a priority queue from the array of keys.
-     * <p>
-     * Takes time proportional to the number of keys, using sink-based heap construction.
-     *
-     * @param  keys the array of keys
-     */
-    public MinPQ(Key[] keys) {
-        n = keys.length;
-        pq = (Key[]) new Object[keys.length + 1];
-        for (int i = 0; i < n; i++)
-            pq[i+1] = keys[i];
-        for (int k = n/2; k >= 1; k--)
-            sink(k);
-    }
 
     /**
      * Returns true if this priority queue is empty.
