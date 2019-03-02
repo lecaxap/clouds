@@ -13,15 +13,6 @@ public class CollisionSystem {
         this.particles = particles.clone();
     }
 
-    private void predict(Particle a){
-        if (a == null) return;
-        for (int i = 0; i < N; i++){
-            double dt = a.timeToHit(particles[i]);
-            pq.insert(new Event(t + dt, a, particles[i]));
-        }
-        pq.insert(new Event(t + a.timeToHitVerticalWall() , a, null));
-        pq.insert(new Event(t + a.timeToHitHorizontalWall(), null, a));
-    }
 
     private void redraw() {
         StdDraw.clear();
